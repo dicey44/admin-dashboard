@@ -18,9 +18,28 @@ body {
 #side-menu {
     grid-area: side;
     background-color: blueviolet;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 #content {
     grid-area: content;
     background-color: chocolate;
+}
+
+.menu-button {
+    width: 80%;
+    background-color: blueviolet;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+button img{
+    width: 50px;
+    margin-right: 10px;
 }
