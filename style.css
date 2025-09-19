@@ -28,18 +28,48 @@ body {
     background-color: chocolate;
 }
 
-.menu-button {
-    width: 80%;
+.menu-item {
+    width: max-content;
     background-color: blueviolet;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: bold;
+    color: white;
+    margin-left: 18px;
 }
 
-button img{
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 85%;
+    & li:last-child {
+        margin-top: auto;
+    }
+}
+
+.menu-item svg{
+    width: 35px;
+    margin-right: 18px;
+    fill: white;
+}
+
+#dashboard-btn {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+    margin-left: 10px;
+}
+
+#dashboard-btn svg {
     width: 50px;
     margin-right: 10px;
 }
+
+.menu-item:hover {
+    transform: scale(1.1);
+    transition: 80ms;
+}
+
