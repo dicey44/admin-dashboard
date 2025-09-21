@@ -3,16 +3,22 @@
     padding: 0;
 }
 
+/* Layout */
+
 body {
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: 20vh 80vh;
-    grid-template-areas: "side header" "side content";
+    grid-template-areas: 
+        "side header" 
+        "side content";
 }
 
 #header {
     grid-area: header;
-    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 40% 60%;
 }
 
 #side-menu {
@@ -21,24 +27,6 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-}
-
-#content {
-    grid-area: content;
-    background-color: chocolate;
-}
-
-.menu-item {
-    width: max-content;
-    background-color: blueviolet;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: white;
-    margin-left: 18px;
 }
 
 nav {
@@ -51,10 +39,38 @@ nav {
     }
 }
 
+#content {
+    grid-area: content;
+    background-color: rosybrown;
+}
+
+button, .menu-item {
+    cursor: pointer;
+    border: none;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin-left: 18px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    background-color: blueviolet;
+    transition: transform 80ms;
+    
+}
+
+/* Buttons */
+
 .menu-item svg{
     width: 35px;
     margin-right: 18px;
-    fill: white;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
 }
 
 #dashboard-btn {
@@ -68,8 +84,98 @@ nav {
     margin-right: 10px;
 }
 
-.menu-item:hover {
-    transform: scale(1.1);
-    transition: 80ms;
+#search-btn {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    background: blueviolet;
+}
+
+.action-btn {
+    width: 90px;
+    padding: 10px;
+    font-weight: bolder;
+    color: white;
+    background-color: blueviolet;
+    border-radius: 30px;
+}
+
+/* Inputs */
+
+#search-input {
+    width: 80%;
+    max-width: 700px;
+    height: 27px;
+    padding-left: 10px;
+    border: 2px solid blueviolet;
+    border-radius: 15px;
+    background-color: rgb(245, 244, 244);
+}
+
+/* Flexbox */
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+#icon-section {
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+#action-buttons {
+    justify-content: center;
+}
+
+/* Images/SVG */
+
+#profile-img, #profile-img-small {
+    border-radius: 50%;
+}
+
+#profile-img {
+    width: 60px;
+}
+
+#profile-img-small {
+    width: 40px;
+}
+
+.white-fill {
+    fill: white;
+}
+
+.small-svg {
+    width: 25px;
+}
+
+
+
+
+/* Text/Positioning */
+
+#profile-name {
+    margin-right: 80px;
+}
+
+.header-left-margin {
+    margin-left: 50px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#greeting {
+    font-size: .9rem;
+}
+
+#user-name {
+    font-size: 1.5rem;
 }
 
