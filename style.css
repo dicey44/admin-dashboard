@@ -40,9 +40,61 @@ nav {
 }
 
 #content {
+    background-color: whitesmoke;
     grid-area: content;
-    background-color: rosybrown;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: 
+    "projects announcements" 
+    "projects trending";
 }
+
+#projects-section {
+    grid-area: projects;
+    padding: 30px 10px;
+}
+
+#projects-section > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.project-div {
+    border: 1px solid blueviolet;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-div > p{
+    min-width: 250px;
+}
+
+.project-icons {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 8px;
+
+}
+
+#announcements-section {
+    grid-area: announcements;
+}
+
+#trending-section {
+    grid-area: trending;
+    background-color: pink;
+}
+
+/* Buttons */
 
 button, .menu-item {
     cursor: pointer;
@@ -61,8 +113,6 @@ button, .menu-item {
     transition: transform 80ms;
     
 }
-
-/* Buttons */
 
 .menu-item svg{
     width: 35px;
@@ -100,6 +150,11 @@ button, .menu-item {
     color: white;
     background-color: blueviolet;
     border-radius: 30px;
+    transition: transform 80ms;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
 }
 
 /* Inputs */
@@ -154,6 +209,9 @@ button, .menu-item {
     width: 25px;
 }
 
+.project-icons > svg{
+    width: 25px;
+}
 
 
 
@@ -179,3 +237,7 @@ button, .menu-item {
     font-size: 1.5rem;
 }
 
+#content > div > p {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
