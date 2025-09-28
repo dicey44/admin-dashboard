@@ -12,6 +12,8 @@ body {
     grid-template-areas: 
         "side header" 
         "side content";
+    max-height: 100vh;
+    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
 }
 
 #header {
@@ -44,7 +46,7 @@ nav {
     grid-area: content;
     display: grid;
     grid-template-columns: 1fr 300px;
-    grid-template-rows: 60% 40%;
+    grid-template-rows: 55% 45%;
     grid-template-areas: 
     "projects announcements" 
     "projects trending";
@@ -52,13 +54,14 @@ nav {
 
 #projects-section {
     grid-area: projects;
-    padding: 30px 10px;
+    padding: 20px 10px;
 }
 
 #projects-section > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    height: 94%;
 }
 
 .project-div {
@@ -66,10 +69,11 @@ nav {
     border-radius: 10px;
     padding: 20px;
     background-color: white;
-    height: 150px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .project-div > p{
@@ -87,11 +91,52 @@ nav {
 
 #announcements-section {
     grid-area: announcements;
+    padding-top: 20px;
+    padding-right: 15px;
+}
+
+#announcements-section > div {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+.grey-line {
+    border: 0;
+    background-color: grey;
+    height: 1px;
+    width: 100%;
+    opacity: 0.25;
 }
 
 #trending-section {
     grid-area: trending;
-    background-color: pink;
+    padding-right: 15px;
+}
+
+#trending-section > div {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Buttons */
@@ -110,17 +155,21 @@ button, .menu-item {
     font-weight: bold;
     color: white;
     background-color: blueviolet;
-    transition: transform 80ms;
     
+    
+}
+
+.grow {
+    transition: transform 80ms;
+}
+
+.grow:hover {
+    transform: scale(1.1);
 }
 
 .menu-item svg{
     width: 35px;
     margin-right: 18px;
-}
-
-.menu-item:hover {
-    transform: scale(1.1);
 }
 
 #dashboard-btn {
@@ -150,11 +199,6 @@ button, .menu-item {
     color: white;
     background-color: blueviolet;
     border-radius: 30px;
-    transition: transform 80ms;
-}
-
-.action-btn:hover {
-    transform: scale(1.1);
 }
 
 /* Inputs */
@@ -186,6 +230,8 @@ button, .menu-item {
 #action-buttons {
     justify-content: center;
 }
+
+
 
 /* Images/SVG */
 
@@ -240,4 +286,13 @@ button, .menu-item {
 #content > div > p {
     font-weight: bold;
     margin-bottom: 8px;
+}
+
+.announcement-heading {
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.small-text {
+    font-size: .8rem;
 }
