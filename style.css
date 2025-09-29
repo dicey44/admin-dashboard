@@ -1,3 +1,9 @@
+:root {
+    --main-color: blueviolet;
+    --main-color-light: rgb(186, 147, 223);
+    --sub-color: lavender;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +31,7 @@ body {
 
 #side-menu {
     grid-area: side;
-    background-color: blueviolet;
+    background-color: var(--main-color);
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -65,7 +71,7 @@ nav {
 }
 
 .project-div {
-    border: 1px solid blueviolet;
+    border: 1px solid var(--main-color);
     border-radius: 10px;
     padding: 20px;
     background-color: white;
@@ -74,10 +80,22 @@ nav {
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.project-div:hover {
+    transform: scale(1.05);
 }
 
 .project-div > p{
-    min-width: 250px;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(82, 82, 82);
 }
 
 .project-icons {
@@ -107,7 +125,15 @@ nav {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+.announcement {
+    cursor: pointer;
+    transition: .3s;
+    padding: 0 10px;
+}
 
+.announcement:hover {
+    background-color: var(--sub-color);
+}
 
 .grey-line {
     border: 0;
@@ -137,6 +163,12 @@ nav {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.trending-item:hover {
+    background-color: var(--sub-color);
 }
 
 /* Buttons */
@@ -154,7 +186,7 @@ button, .menu-item {
     font-size: 1.3rem;
     font-weight: bold;
     color: white;
-    background-color: blueviolet;
+    background-color: var(--main-color);
     
     
 }
@@ -189,7 +221,7 @@ button, .menu-item {
     height: 30px;
     padding: 5px;
     border-radius: 50%;
-    background: blueviolet;
+    background: var(--main-color);
 }
 
 .action-btn {
@@ -197,7 +229,7 @@ button, .menu-item {
     padding: 10px;
     font-weight: bolder;
     color: white;
-    background-color: blueviolet;
+    background-color: var(--main-color);
     border-radius: 30px;
 }
 
@@ -208,9 +240,14 @@ button, .menu-item {
     max-width: 700px;
     height: 27px;
     padding-left: 10px;
-    border: 2px solid blueviolet;
+    border: 2px solid var(--main-color);
     border-radius: 15px;
-    background-color: rgb(245, 244, 244);
+    background-color: whitesmoke;
+    outline: none;
+}
+
+#search-input:focus {
+    border-color: rgb(186, 147, 223);
 }
 
 /* Flexbox */
@@ -257,6 +294,16 @@ button, .menu-item {
 
 .project-icons > svg{
     width: 25px;
+    transition: .2s;
+    border-radius: 50%;
+}
+
+.project-icons > svg:hover {
+    background-color: var(--sub-color);
+}
+
+svg {
+    cursor: pointer;
 }
 
 
@@ -295,4 +342,100 @@ button, .menu-item {
 
 .small-text {
     font-size: .8rem;
+}
+
+/* Tablet Version */
+
+@media (max-width: 1024px) {
+
+    body {
+        background-color: whitesmoke;
+        grid-template-columns: 230px 1fr;
+    }
+
+    #header {
+        background-color: white;
+    }
+
+    #side-menu {
+    position: fixed;
+    height: 100vh;
+    width: 230px;
+}
+
+    #content {
+        display: block;
+    }
+
+    #announcements-section {
+    padding: 20px 15px 0 15px;
+    }
+
+    #trending-section {
+        padding: 20px 15px 20px 15px;
+    }
+
+    #header {
+    grid-template-columns: 2fr 1fr;
+    }
+
+    .action-btn {
+    width: 65px;
+    }
+
+    #search-input {
+    width: 100%;
+    margin-right: 40px;
+    }
+}
+
+@media (max-width: 750px) {
+    #header {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "greeting"
+        "search"
+        "action"
+        ;
+    }
+
+    #search-container {
+        grid-area: search;
+        padding: 0 15px;
+    }
+
+    #search-input {
+        margin-right: 0;
+    }
+
+    #icon-section {
+        display: none;
+    }
+
+    #greeting-section {
+        grid-area: greeting;
+        justify-content: center;
+        padding-top: 15px;
+    }
+
+
+    #action-buttons {
+        grid-area: action;
+        padding-bottom: 5px;
+    }
+
+    #projects-section > div {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+}
+
+    #profile-name {
+        margin-right: 0px;
+    }
+
+    .header-left-margin {
+        margin-left: 0px;
+    }
 }
